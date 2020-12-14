@@ -1,0 +1,67 @@
+#new-game{
+    font-size:1.4rem;
+    margin-bottom:1rem;
+}
+
+#info{
+    font-size:1.2rem;
+    margin-bottom:1rem;
+}
+
+#info>div{
+    height:50px;
+    width:50px;
+    margin:2px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+td{
+    border-radius:50%;
+    background-color:#FED7B3;
+}
+
+th{
+    border:1px dashed black;
+}
+
+th,td{
+    height:50px;
+    width:50px;
+    margin:2px;
+    transition:all 0.5s ease;
+}
+
+th:hover{
+    background-color:lightyellow;
+}
+
+.player1{
+    /* position:absolute; */
+    background: linear-gradient(139.58deg, #0084FE 5.93%, rgba(255, 255, 255, 0) 184.79%), rgba(41, 238, 251, 0.75);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius:50%;
+    border:1px solid black;
+    height:95%;
+    width:95%;
+}
+
+.player2{
+    /* position:absolute; */
+    background: linear-gradient(148.85deg, #EB1D1D 1.23%, rgba(245, 182, 182, 0.94) 124.58%), rgba(255, 18, 18, 0.75);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius:50%;
+    border:1px solid black;
+    height:95%;
+    width:95%;
+}
+
+table{
+    /* position:relative; */
+    background: #A27676;
+    background-size:fill;
+    border: 2px solid #000000;
+    box-sizing: border-box; 
+    width:366px;
+    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
+}
