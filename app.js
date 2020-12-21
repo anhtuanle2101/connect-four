@@ -70,14 +70,17 @@ class Game{
     checkWin(r,c){
         r=parseInt(r);
         c=parseInt(c);
-        rowCondition=this.fourConnected(this.board.get(`${r}${c-3}`),this.board.get(`${r}${c-2}`),this.board.get(`${r}${c-1}`),this.board.get(`${r}${c}`),this.board.get(`${r}${c+1}`),this.board.get(`${r}${c+2}`),this.board.get(`${r}${c+3}`));
-        columnCondition=this.fourConnected(this.board.get(`${r}${c}`),this.board.get(`${r-1}${c}`),this.board.get(`${r-2}${c}`),this.board.get(`${r-3}${c}`));
-        dia1Condition=this.fourConnected(this.board.get(`${r-3}${c-3}`),this.board.get(`${r-2}${c-2}`),this.board.get(`${r-1}${c-1}`),this.board.get(`${r}${c}`),this.board.get(`${r+1}${c+1}`),this.board.get(`${r+2}${c+2}`),this.board.get(`${r+3}${c+3}`));
-        dia2Condition=this.fourConnected(this.board.get(`${r+3}${c-3}`),this.board.get(`${r+2}${c-2}`),this.board.get(`${r+1}${c-1}`),this.board.get(`${r}${c}`),this.board.get(`${r-1}${c+1}`),this.board.get(`${r-2}${c+2}`),this.board.get(`${r-3}${c+3}`));
+        const rowCondition=this.fourConnected(this.board.get(`${r}${c-3}`),this.board.get(`${r}${c-2}`),this.board.get(`${r}${c-1}`),this.board.get(`${r}${c}`),this.board.get(`${r}${c+1}`),this.board.get(`${r}${c+2}`),this.board.get(`${r}${c+3}`));
+        const columnCondition=this.fourConnected(this.board.get(`${r}${c}`),this.board.get(`${r-1}${c}`),this.board.get(`${r-2}${c}`),this.board.get(`${r-3}${c}`));
+        const dia1Condition=this.fourConnected(this.board.get(`${r-3}${c-3}`),this.board.get(`${r-2}${c-2}`),this.board.get(`${r-1}${c-1}`),this.board.get(`${r}${c}`),this.board.get(`${r+1}${c+1}`),this.board.get(`${r+2}${c+2}`),this.board.get(`${r+3}${c+3}`));
+        const dia2Condition=this.fourConnected(this.board.get(`${r+3}${c-3}`),this.board.get(`${r+2}${c-2}`),this.board.get(`${r+1}${c-1}`),this.board.get(`${r}${c}`),this.board.get(`${r-1}${c+1}`),this.board.get(`${r-2}${c+2}`),this.board.get(`${r-3}${c+3}`));
         if(rowCondition||columnCondition||dia1Condition||dia2Condition){
             this.clickable=false;
             setTimeout(function(){
+                this.switchPlayer();
                 alert('Player '+this.currPlayer+' have won');
+                document.querySelector('#player1').value='';
+                document.querySelector('#player2').value='';
             }.bind(this),500);
         }
         
@@ -148,6 +151,12 @@ class Player{
     }
 }
 
+const isColor = (strColor) => {
+    const s = new Option().style;
+    s.color = strColor;
+    return s.color !== '';
+  }
+
 //Form submit handler
 document.querySelector('form').addEventListener('click',function(e){
     e.preventDefault();
@@ -157,9 +166,15 @@ document.querySelector('form').addEventListener('click',function(e){
         const player1=new Player(document.querySelector('#player1').value);
         const player2=new Player(document.querySelector('#player2').value);
         
-        if (!!(player1.color && player2.color))
+        if (isColor(player1.color)&&isColor(player2.color)){
             gameInstance.addPlayers(player1,player2);
             gameInstance.play();
+        }else{
+            alert('Please provide valid colors!');
+            document.querySelector('#player1').value='';
+            document.querySelector('#player2').value='';
+        }
+
     }
 })
 
