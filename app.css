@@ -37,8 +37,6 @@ th:hover{
 }
 
 .player1{
-    /* position:absolute; */
-    /* background: linear-gradient(139.58deg, #0084FE 5.93%, rgba(255, 255, 255, 0) 184.79%), rgba(41, 238, 251, 0.75); */
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius:50%;
     border:1px solid black;
@@ -47,8 +45,6 @@ th:hover{
 }
 
 .player2{
-    /* position:absolute; */
-    /* background: linear-gradient(148.85deg, #EB1D1D 1.23%, rgba(245, 182, 182, 0.94) 124.58%), rgba(255, 18, 18, 0.75); */
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius:50%;
     border:1px solid black;
@@ -57,7 +53,6 @@ th:hover{
 }
 
 table{
-    /* position:relative; */
     background: #A27676;
     background-size:fill;
     border: 2px solid #000000;
